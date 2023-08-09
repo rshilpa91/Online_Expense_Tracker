@@ -1,4 +1,4 @@
-package com.dao;
+ package com.dao;
 
 import javax.persistence.Query;
 
@@ -8,7 +8,7 @@ import org.hibernate.Transaction;
 
 import com.entity.User;
 
-
+ 
 public class UserDao {
 	
 	private SessionFactory factory=null;
@@ -44,20 +44,21 @@ public class UserDao {
 		return f;		
 	}
 
+	@SuppressWarnings({ "rawtypes", "deprecation" })
 	public User login(String email, String password)
 	{
 		User u=null;
 		
 		session=factory.openSession();
 		
-		Query q=session.createQuery("from User where email:em and password:ps");
+		Query q=session.createQuery("from User where email=:em and password=:ps");
 		
 		q.setParameter("em", email);
 		q.setParameter("ps", password);
 		
 		u = (User) ((org.hibernate.Query) q).uniqueResult();
 		
-		return u;
+		return u; 
 	}
 
 

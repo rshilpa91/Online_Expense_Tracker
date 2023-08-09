@@ -20,17 +20,24 @@ public class RegisterServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String fullName=req.getParameter("fullName");
-		String email=req.getParameter("email");
-		String password=req.getParameter("password");
-		String about=req.getParameter("about");
+		String fullName = req.getParameter("fullName");
+		String email = req.getParameter("email");
+		String password = req.getParameter("password");
+		String about = req.getParameter("about");
 		
 		User u=new User(fullName, email, password, about);
 		
-		//System.out.println(u);
+		System.out.println(u);
 		
 		UserDao dao=new UserDao(HibernateUtil.getSessionFactory());
-		boolean f=dao.saveuser(u);
+		System.out.println("Userdao " + dao.toString());
+		boolean f = false;
+		try {
+		 f=dao.saveuser(u);
+		}catch(Exception e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
 		
 		HttpSession session=req.getSession();
 		
@@ -39,8 +46,9 @@ public class RegisterServlet extends HttpServlet {
 			//System.out.println("Register Successfully");
 			resp.sendRedirect("register.jsp");
 		} else {
+		
 			session.setAttribute("msg", "Something wrong on server");
-			//System.out.println("Something wrong on server");
+		System.out.println("Something wrong on server");
 			resp.sendRedirect("register.jsp");
 		}
 			

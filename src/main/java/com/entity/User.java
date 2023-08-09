@@ -12,11 +12,11 @@ import javax.persistence.Table;
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	@Column(name = "full_name")
-	private String fullname;
+	private String fullName;
 	
 	private String email;
 	
@@ -31,7 +31,7 @@ public class User {
 
 	public User(String fullname, String email, String password, String about) {
 		super();
-		this.fullname = fullname;
+		this.fullName = fullname;
 		this.email = email;
 		this.password = password;
 		this.about = about;
@@ -46,11 +46,11 @@ public class User {
 	}
 
 	public String getFullName() {
-		return fullname;
+		return fullName;
 	}
 
-	public void setFullname(String fullname) {
-		this.fullname = fullname;
+	public void setFullName(String fullname) {
+		this.fullName = fullname;
 	}
 
 	public String getEmail() {
@@ -79,7 +79,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", fullname=" + fullname + ", email=" + email + ", password=" + password + ", about="
+		return "User [id=" + id + ", fullname=" + fullName + ", email=" + email + ", password=" + password + ", about="
 				+ about + "]";
 	}
 	
