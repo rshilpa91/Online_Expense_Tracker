@@ -7,25 +7,30 @@
 	  <version>0.0.1-SNAPSHOT</version>
 	  <name>Online_Expense_Tracker Maven Webapp</name>
 	  <url>http://maven.apache.org</url>
+	<properties>
+		<jdk.version>1.8</jdk.version>
+		<spring.version>6.0.8.RELEASE</spring.version>
+		<spring-orm.version>6.0.8.RELEASE</spring-orm.version>
+		<spring-jdbc.version>6.0.8.RELEASE</spring-jdbc.version>
+		<jstl.version>1.2</jstl.version>
+		<servletapi.version>2.5</servletapi.version>
+		<hibernate.version>5.6.9.ga</hibernate.version>
+	</properties>
 	  <dependencies>
-		  
-	<!-- https://mvnrepository.com/artifact/org.jfree/jfreechart -->
-			  
-		  <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+	
+	  <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-webmvc</artifactId>
 	    <version>6.0.8</version>
-	</dependency>  
+	</dependency>
 
-	<!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
 	<dependency>
 	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-orm</artifactId>
 	    <version>6.0.8</version>
 	</dependency>
-	
-    
+	    
     <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-loader -->
 	<dependency>
 	    <groupId>org.springframework.boot</groupId>
@@ -40,8 +45,6 @@
 	    <version>3.0.5</version>
 	</dependency>
 
-
-
 	<!-- https://mvnrepository.com/artifact/com.fasterxml/classmate -->
 	<dependency>
 	    <groupId>com.fasterxml</groupId>
@@ -54,21 +57,21 @@
        <artifactId>slf4j-api</artifactId>
        <version>1.7.5</version>
    </dependency>
+
    <dependency>
        <groupId>org.slf4j</groupId>
        <artifactId>slf4j-log4j12</artifactId>
        <version>1.7.5</version>
    </dependency>
-
-		  
-		  
+ 
 	<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
 	<dependency>
 	    <groupId>javax.servlet</groupId>
 	    <artifactId>jstl</artifactId>
 	    <version>1.2</version>
 	</dependency>
-		  <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+		  
+	<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 	<dependency>
 	    <groupId>javax.servlet</groupId>   
 	    <artifactId>javax.servlet-api</artifactId>
@@ -81,7 +84,6 @@
 	    <artifactId>jakarta.servlet.jsp.jstl</artifactId>
 	    <version>1.2.6</version>
 	</dependency>
-	
 		
 	<dependency>
 	    <groupId>org.eclipse.persistence</groupId>
@@ -89,7 +91,6 @@
 	    <version>4.0.1</version>
 	</dependency>
 
-	
 	<!-- https://mvnrepository.com/artifact/org.eclipse.persistence/javax.persistence -->
 	<dependency>
 	    <groupId>org.eclipse.persistence</groupId>
@@ -104,6 +105,13 @@
 	    <artifactId>mysql-connector-java</artifactId>
 	    <version>8.0.31</version>
 	</dependency>
+		  
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-jdbc</artifactId>
+	    <version>6.0.8</version>
+	</dependency>
 	
 	<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
 	<dependency>
@@ -112,7 +120,7 @@
 	    <version>6.0.8</version>
 	</dependency>
 
-<!-- https://mvnrepository.com/artifact/org.jboss.logging/jboss-logging -->
+	<!-- https://mvnrepository.com/artifact/org.jboss.logging/jboss-logging -->
 	<dependency>
 	    <groupId>org.jboss.logging</groupId>
 	    <artifactId>jboss-logging</artifactId>
@@ -140,8 +148,6 @@
 	   <version>2.0.2</version>
 	</dependency>
 
-
-
 	<!-- https://mvnrepository.com/artifact/net.bytebuddy/byte-buddy -->
 	<dependency>
 	    <groupId>net.bytebuddy</groupId>
@@ -150,7 +156,6 @@
 	</dependency>
 
 	
-	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 	<dependency>
 	    <groupId>org.hibernate</groupId>
@@ -176,10 +181,29 @@
 	</dependency>
 
 		
+	<!-- https://mvnrepository.com/artifact/org.jboss.logging/jboss-logging -->
+	<dependency>
+	    <groupId>org.jboss.logging</groupId>
+	    <artifactId>jboss-logging</artifactId>
+	    <version>3.4.1.Final</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+	
 	<dependency>
 	    <groupId>org.hibernate</groupId>
-	    <artifactId>hibernate-entitymanager</artifactId>
+	    <artifactId>hibernate-core</artifactId>
 	    <version>5.6.9.Final</version>
+	    <exclusions>
+			<exclusion>
+				<groupId>org.jboss.logging</groupId>
+			<artifactId>jboss-logging</artifactId>
+			</exclusion>
+			<exclusion>
+				<groupId>org.hibernate.common</groupId>
+			<artifactId>hibernate-commons-annotations</artifactId>
+			</exclusion>
+		</exclusions>
 	</dependency>
 	
 	<!-- https://mvnrepository.com/artifact/org.hibernate.javax.persistence/hibernate-jpa-2.1-api -->
